@@ -31,21 +31,20 @@ router.post('/notes', (req, res) => {
 });
 
 
-// TODO:  Get the delete function working
-// router.delete('/notes/:id', (req, res) => {
-//   const { body } = req;
-//   readFile('db/db.json').then(function (data) {
-//     const db = JSON.parse(data)
-//     console.log(db)
-//     const note = 
-//     console.log(note)
-//     const result = db.filter((note) => note.id !== id)
-//     // db.push(result)
-//     console.log(note)
+// TODO:  Get this delete function removes a note when the trash can icon is clicked.
+router.delete('/notes/:id', (req, res) => {
+  const { body, params } = req;
+  readFile('db/db.json').then(function (data) {
+    const db = JSON.parse(data)
+    console.log(db)
+    
+    const result = db.filter((note) => note.id !== params.id)
+    console.log(result, params.id)
+    
 
-//     // writeFile('db/db.json', JSON.stringify(db))
-//     res.json(result)
-//   })
-// });
+    writeFile('db/db.json', JSON.stringify(result))
+    res.json(result)
+  })
+});
 
 module.exports = router;
