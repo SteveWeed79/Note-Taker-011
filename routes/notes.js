@@ -28,12 +28,13 @@ router.post('/notes', (req, res) => {
   })
 });
 
-router.post('/notes/:id', (req, res) => {
+router.delete('/notes/:id', (req, res) => {
   const { body } = req;
   readFile('db/db.json').then(function (data) {
     const db = JSON.parse(data)
-    const result = db.filter(db.id)
-    writeFile('db/db.json', JSON.stringify(result))
+    let result = db.filter(noteId => !noteId)
+    db.push(result)
+    writeFile('db/db.json', JSON.stringify(db))
     res.json(result)
   })
 });
