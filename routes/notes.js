@@ -28,20 +28,20 @@ router.post('/notes', (req, res) => {
   })
 });
 
-router.delete('/notes/:id', (req, res) => {
-  const { body } = req;
-  readFile('db/db.json').then(function (data) {
-    const db = JSON.parse(data)
-    console.log(db.id)
-    const note = data.id
-    console.log(note)
-    let result = db.filter((note) => note.id !== note)
-    // db.push(result)
-    console.log(note)
+// router.delete('/notes/:id', (req, res) => {
+//   const { body } = req;
+//   readFile('db/db.json').then(function (data) {
+//     const db = JSON.parse(data)
+//     console.log(db)
+//     const note = 
+//     console.log(note)
+//     const result = db.filter((note) => note.id !== id)
+//     // db.push(result)
+//     console.log(note)
 
-    // writeFile('db/db.json', JSON.stringify(db))
-    res.json(result)
-  })
-});
+//     // writeFile('db/db.json', JSON.stringify(db))
+//     res.json(result)
+//   })
+// });
 
 module.exports = router;
