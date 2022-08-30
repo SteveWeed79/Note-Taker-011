@@ -32,9 +32,14 @@ router.delete('/notes/:id', (req, res) => {
   const { body } = req;
   readFile('db/db.json').then(function (data) {
     const db = JSON.parse(data)
-    let result = db.filter(noteId => !noteId)
-    db.push(result)
-    writeFile('db/db.json', JSON.stringify(db))
+    console.log(db.id)
+    const note = data.id
+    console.log(note)
+    let result = db.filter((note) => note.id !== note)
+    // db.push(result)
+    console.log(note)
+
+    // writeFile('db/db.json', JSON.stringify(db))
     res.json(result)
   })
 });
