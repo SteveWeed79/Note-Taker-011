@@ -6,7 +6,7 @@ This note taking app is a simple way to track and organize notes.  Keeping up wi
 
 
 
-## Table of Contents (Optional)
+## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
